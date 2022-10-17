@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DessertListComponent } from './view/components/route/dessert-list/dessert-list.component';
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        loadChildren: () => import('./content/desserts/desserts.module').then(m => m.DessertsModule),
+        component: DessertListComponent,
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class DessertsRoutingModule {
 }
