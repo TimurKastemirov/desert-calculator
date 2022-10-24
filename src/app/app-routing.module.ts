@@ -3,9 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
+        path: 'recipes',
+        loadChildren: () => import('./content/recipes/recipes.module').then(m => m.RecipesModule),
+    },
+    {
+        path: 'ingredients',
+        loadChildren: () => import('./content/ingredients/ingredients.module').then(m => m.IngredientsModule),
+    },
+    {
         path: '',
         pathMatch: 'full',
-        loadChildren: () => import('./content/desserts/desserts.module').then(m => m.DessertsModule),
+        redirectTo: 'recipes',
     }
 ];
 

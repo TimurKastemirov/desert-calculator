@@ -4,12 +4,12 @@
     </button>
 
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['recipes']">
             <mat-icon>assignment</mat-icon>
             <span>Recipes</span>
         </button>
 
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['ingredients']">
             <mat-icon>cake</mat-icon>
             <span>Ingredients</span>
         </button>
@@ -25,4 +25,8 @@
 <!--    </button>-->
 </mat-toolbar>
 
-<router-outlet></router-outlet>
+<main class="main">
+    <router-outlet></router-outlet>
+</main>
+
+<footer></footer>
