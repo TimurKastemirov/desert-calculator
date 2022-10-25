@@ -1,4 +1,4 @@
-import { IngredientPackageUnit } from '@core/models/ingredient-package-unit';
+import { IngredientPackageUnit } from '../../../../core/models/ingredient-package-unit';
 
 export interface Ingredient {
     id: number;

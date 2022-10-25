@@ -1,0 +1,15 @@
+.ingredient-list {
+    margin: 10px 0;
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    &__item {
+        max-width: 400px;
+        min-width: 300px;
+        width: 100%;
+    }
+}

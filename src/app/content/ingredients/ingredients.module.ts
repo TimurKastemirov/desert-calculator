@@ -5,6 +5,8 @@ import { IngredientsRoutingModule } from './ingredients-routing.module';
 import { IngredientListComponent } from './view/components/route/ingredient-list/ingredient-list.component';
 import { IngredientDetailsComponent } from './view/components/route/ingredient-details/ingredient-details.component';
 import { IngredientCardComponent } from './view/components/ui/ingredient-card/ingredient-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { IngredientCardComponent } from './view/components/ui/ingredient-card/in
   ],
     imports: [
         CommonModule,
-        IngredientsRoutingModule
+        IngredientsRoutingModule,
+        MatCardModule,
+        MatButtonModule
     ]
 })
 export class IngredientsModule {
