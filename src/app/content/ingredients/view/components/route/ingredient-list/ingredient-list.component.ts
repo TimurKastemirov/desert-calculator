@@ -1,36 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../../../domain/models/ingredient';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-ingredient-list',
-  templateUrl: './ingredient-list.component.html',
-  styleUrls: ['./ingredient-list.component.scss']
+    selector: 'app-ingredient-list',
+    templateUrl: './ingredient-list.component.html',
+    styleUrls: ['./ingredient-list.component.scss']
 })
 export class IngredientListComponent implements OnInit {
-    list: Ingredient[] = [
-        {
-            id: 1,
-            name: 'Water',
-            package: {
-                unit: 'l',
-                value: 20,
-            },
-            price: 40,
-        },
-        {
-            id: 2,
-            name: 'Flower',
-            package: {
-                unit: 'kg',
-                value: 5,
-            },
-            price: 50,
-        }
-    ];
+    list!: Ingredient[];
 
-  constructor() { }
+    constructor(
+        private activatedRoute: ActivatedRoute,
+    ) {
+    }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+        this.activatedRoute.data
+            .subscribe(data => {
+                this.list = data['ingredients'];
+            });
+    }
 }

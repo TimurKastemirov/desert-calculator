@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
-import { IMyStorage, MyStorage } from '../../storage/my-storage';
-import { storageInjectionToken } from '../../storage/storage-injection-token';
+import { IMyStorage, MyStorage } from '../my-storage';
+import { storageInjectionToken } from '../storage-injection-token';
 import { Observable } from 'rxjs';
 import { Ingredient } from '../../../content/ingredients/domain/models/ingredient';
 

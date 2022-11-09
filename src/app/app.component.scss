@@ -1,7 +1,14 @@
+.my-app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .toolbar-spacer {
     flex: 1 1 auto;
 }
 
 .main {
-    padding: 0 25px;
+    flex: 1 0 auto;
+    padding: 15px 25px;
 }

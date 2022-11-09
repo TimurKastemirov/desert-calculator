@@ -13,7 +13,7 @@ import { LocalStorageStorage } from './storage/storage-strategies/local-storage.
             provide: storageInjectionToken,
             useFactory: () => ((/* here deps */) => {
                 return (tableName: string) => new LocalStorageStorage(tableName, localStorage);
-            }),
+            })(),
             deps: [],
         }
     ],

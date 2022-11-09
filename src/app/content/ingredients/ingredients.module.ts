@@ -7,20 +7,26 @@ import { IngredientDetailsComponent } from './view/components/route/ingredient-d
 import { IngredientCardComponent } from './view/components/ui/ingredient-card/ingredient-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { IngredientsApiService } from './application/api/ingredients.api.service';
+import { IngredientListResolverService } from './domain/services/ingredient-list.resolver.service';
 
 
 @NgModule({
     declarations: [
-    IngredientListComponent,
-    IngredientDetailsComponent,
-    IngredientCardComponent
-  ],
+        IngredientListComponent,
+        IngredientDetailsComponent,
+        IngredientCardComponent
+    ],
     imports: [
         CommonModule,
         IngredientsRoutingModule,
         MatCardModule,
         MatButtonModule
-    ]
+    ],
+    providers: [
+        IngredientsApiService,
+        IngredientListResolverService,
+    ],
 })
 export class IngredientsModule {
 }
