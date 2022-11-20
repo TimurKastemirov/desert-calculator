@@ -1,0 +1,27 @@
+<form class="ingredient-form" [formGroup]="form">
+    <div class="ingredient-form__content">
+        <mat-form-field appearance="fill">
+            <mat-label>Название</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Цена</mat-label>
+            <input matInput formControlName="price">
+        </mat-form-field>
+
+        <div formGroupName="package" class="ingredient-form__package">
+            <mat-form-field appearance="fill">
+                <mat-label>Единица измерения</mat-label>
+                <mat-select formControlName="unit">
+                    <mat-option *ngFor="let option of unitOptions" [value]="option.value">{{option.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Значение</mat-label>
+                <input matInput formControlName="value">
+            </mat-form-field>
+        </div>
+    </div>
+</form>

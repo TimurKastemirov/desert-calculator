@@ -1,0 +1,21 @@
+.ingredient-form {
+    width: 100%;
+
+    mat-form-field {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    &__package {
+        flex: 1 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}

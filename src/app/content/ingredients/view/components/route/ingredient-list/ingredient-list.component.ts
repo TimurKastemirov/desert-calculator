@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../../../domain/models/ingredient';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-ingredient-list',
@@ -12,6 +12,7 @@ export class IngredientListComponent implements OnInit {
 
     constructor(
         private activatedRoute: ActivatedRoute,
+        private router: Router,
     ) {
     }
 
@@ -20,5 +21,13 @@ export class IngredientListComponent implements OnInit {
             .subscribe(data => {
                 this.list = data['ingredients'];
             });
+    }
+
+    addIngredient(): void {
+        this.router.navigate(['new'], { relativeTo: this.activatedRoute }).then();
+    }
+
+    editIngredient(): void {
+
     }
 }

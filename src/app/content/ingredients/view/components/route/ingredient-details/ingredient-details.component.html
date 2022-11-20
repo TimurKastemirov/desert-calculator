@@ -1,1 +1,16 @@
-<p>ingredient-details works!</p>
+<h1>
+    <ng-container *ngIf="ingredient.id">Edit</ng-container>
+    <ng-container *ngIf="!ingredient.id">Add</ng-container>
+    Ingredient
+</h1>
+<app-ingredient-form [ingredient]="ingredient" (formChange)="formChange($event)"></app-ingredient-form>
+
+<div class="btn-wrapper">
+    <button mat-raised-button color="primary"
+            (click)="saveIngredient($event)"
+            [disabled]="!(form && form.valid && !form.pristine && form.dirty)"
+    >
+        Save
+    </button>
+    <button mat-raised-button color="warn" (click)="goBack()">Cancel</button>
+</div>

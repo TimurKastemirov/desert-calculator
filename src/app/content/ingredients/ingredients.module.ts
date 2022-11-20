@@ -9,19 +9,29 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { IngredientsApiService } from './application/api/ingredients.api.service';
 import { IngredientListResolverService } from './domain/services/ingredient-list.resolver.service';
+import { IngredientFormComponent } from './view/components/ui/ingredient-form/ingredient-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
     declarations: [
         IngredientListComponent,
         IngredientDetailsComponent,
-        IngredientCardComponent
+        IngredientCardComponent,
+        IngredientFormComponent
     ],
     imports: [
         CommonModule,
         IngredientsRoutingModule,
         MatCardModule,
-        MatButtonModule
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule
     ],
     providers: [
         IngredientsApiService,
