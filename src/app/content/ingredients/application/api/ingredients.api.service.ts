@@ -16,4 +16,16 @@ export class IngredientsApiService {
     getById(id: number): Observable<Ingredient> {
         return this.storage.getById(id);
     }
+
+    addItem(ingredient: Ingredient): Observable<Ingredient> {
+        return this.storage.add(ingredient);
+    }
+
+    updateItem(id: number, ingredient: Partial<Ingredient>): Observable<Ingredient> {
+        return this.storage.update(id, ingredient);
+    }
+
+    deleteItem(id: number): Observable<Ingredient> {
+        return this.storage.remove(id);
+    }
 }

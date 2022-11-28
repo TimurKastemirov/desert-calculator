@@ -1,7 +1,11 @@
 <div class="ingredient-list">
     <div class="ingredient-list__content">
         <div class="ingredient-list__item" *ngFor="let ingredient of list">
-            <app-ingredient-card [ingredient]="ingredient"></app-ingredient-card>
+            <app-ingredient-card
+                [ingredient]="ingredient"
+                (editIngredient)="editIngredient($event)"
+                (deleteIngredient)="deleteIngredient($event)"
+            ></app-ingredient-card>
         </div>
     </div>
     <div class="ingredient-list__btn-wrapper">

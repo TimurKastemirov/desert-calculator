@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { IngredientsApiService } from '../../application/api/ingredients.api.service';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Ingredient } from '../models/ingredient';
 import { Observable } from 'rxjs';
+import { IngredientsService } from '../services/ingredients.service';
 
 @Injectable()
 export class IngredientListResolverService implements Resolve<Ingredient[]> {
-    constructor(private ingredientsApiService: IngredientsApiService) {}
+    constructor(private ingredientsService: IngredientsService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Ingredient[]> {
-        return this.ingredientsApiService.getList();
+        return this.ingredientsService.getList();
     }
 }

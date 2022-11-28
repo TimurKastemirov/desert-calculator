@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ingredient } from '../../../../domain/models/ingredient';
 
 @Component({
@@ -8,8 +8,20 @@ import { Ingredient } from '../../../../domain/models/ingredient';
 })
 export class IngredientCardComponent implements OnInit {
     @Input() ingredient!: Ingredient;
+    @Output() editIngredient: EventEmitter<number> = new EventEmitter<number>();
+    @Output() deleteIngredient: EventEmitter<number> = new EventEmitter<number>();
 
     constructor() {}
 
     ngOnInit(): void {}
+
+    editItem($event: MouseEvent) {
+        $event.stopPropagation();
+        this.editIngredient.emit(this.ingredient.id);
+    }
+
+    deleteItem($event: MouseEvent) {
+        $event.stopPropagation();
+        this.deleteIngredient.emit(this.ingredient.id);
+    }
 }

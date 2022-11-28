@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../../../domain/models/ingredient';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IngredientsService } from '../../../../domain/services/ingredients.service';
+import { switchMap, take, tap } from 'rxjs';
 
 @Component({
     selector: 'app-ingredient-list',
@@ -13,6 +15,7 @@ export class IngredientListComponent implements OnInit {
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
+        private ingredientsService: IngredientsService,
     ) {
     }
 
@@ -27,7 +30,18 @@ export class IngredientListComponent implements OnInit {
         this.router.navigate(['new'], { relativeTo: this.activatedRoute }).then();
     }
 
-    editIngredient(): void {
+    editIngredient(id: number): void {
+        this.router.navigate([id], { relativeTo: this.activatedRoute }).then();
+    }
 
+    deleteIngredient(id: number) {
+        // todo add confirm dialog
+        this.ingredientsService.deleteItem(id)
+            .pipe(
+                take(1),
+                switchMap(() => this.ingredientsService.getList()),
+                tap((list: Ingredient[]) => this.list = list),
+            )
+            .subscribe()
     }
 }

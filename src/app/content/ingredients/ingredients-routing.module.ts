@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IngredientListComponent } from './view/components/route/ingredient-list/ingredient-list.component';
-import { IngredientListResolverService } from './domain/services/ingredient-list.resolver.service';
+import { IngredientListResolverService } from './domain/resolvers/ingredient-list.resolver.service';
 import { IngredientDetailsComponent } from './view/components/route/ingredient-details/ingredient-details.component';
+import { IngredientDetailsResolverService } from './domain/resolvers/ingredient-details.resolver.service';
 
 const routes: Routes = [
     {
@@ -24,7 +25,7 @@ const routes: Routes = [
         path: ':id',
         component: IngredientDetailsComponent,
         resolve: {
-            ingredient: () => Promise.resolve({}),
+            ingredient: IngredientDetailsResolverService,
         }
     }
 ];
