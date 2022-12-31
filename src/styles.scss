@@ -5,3 +5,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 * {
     box-sizing: border-box;
 }
+
+.list-btn-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    & > button {
+        display: block;
+        width: 70%;
+        max-width: 300px;
+        padding: 7px 0;
+    }
+}

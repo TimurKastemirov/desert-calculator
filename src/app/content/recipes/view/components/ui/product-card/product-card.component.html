@@ -1,1 +1,15 @@
-<p>product-card works!</p>
+<mat-card class="ingredient-card">
+    <mat-card-header>
+        <div class="avatar" mat-card-avatar>{{product.id}}</div>
+        <mat-card-title>{{product.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="content">
+            <h3>Price: {{calculatedPrice | currency : 'TL '}}</h3>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="editItem($event)">EDIT</button>
+        <button mat-button color="warn" (click)="deleteItem($event)">DELETE</button>
+    </mat-card-actions>
+</mat-card>

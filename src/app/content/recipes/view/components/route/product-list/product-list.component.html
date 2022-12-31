@@ -1,1 +1,15 @@
-<p>product-list works!</p>
+<div class="product-list">
+    <div class="product-list__content">
+        <div class="product-list__item" *ngFor="let product of list">
+            <app-product-card
+                [product]="product"
+                (editProduct)="editProduct($event)"
+                (deleteProduct)="deleteProduct($event)"
+            ></app-product-card>
+        </div>
+    </div>
+
+    <div class="list-btn-wrapper">
+        <button (click)="addProduct()" mat-raised-button color="primary">Add</button>
+    </div>
+</div>

@@ -14,20 +14,4 @@
     }
 
     &__item {}
-
-    &__btn-wrapper {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-
-        & > button {
-            display: block;
-            width: 70%;
-            max-width: 300px;
-            padding: 7px 0;
-        }
-    }
 }

@@ -1,4 +1,4 @@
-export type IngredientPackageUnit = 'g' | 'kg' | 'ml' | 'l';
+export type IngredientPackageUnit = 'g' | 'kg' | 'ml' | 'l' | 'sht';
 
 export const IngredientPackageUnitMap: { name: string, value: IngredientPackageUnit }[] = [
     {
@@ -17,6 +17,10 @@ export const IngredientPackageUnitMap: { name: string, value: IngredientPackageU
         name: 'Литр',
         value: 'l',
     },
+    {
+        name: 'Штук',
+        value: 'sht',
+    },
 ];
 
 export enum IngredientPackageUnitMultiplier {
@@ -24,4 +28,5 @@ export enum IngredientPackageUnitMultiplier {
     kg = 1000,
     ml = 1,
     l = 1000,
+    sht = 1,
 }
