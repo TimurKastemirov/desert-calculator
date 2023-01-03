@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { IngredientsService } from './domain/services/ingredients.service';
 import { IngredientDetailsResolverService } from './domain/resolvers/ingredient-details.resolver.service';
+import { IngredientStorageService } from '@content/ingredients/application/storage/ingredient-storage.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { IngredientDetailsResolverService } from './domain/resolvers/ingredient-
         MatSelectModule
     ],
     providers: [
+        IngredientStorageService,
         IngredientsApiService,
         IngredientsService,
         IngredientListResolverService,

@@ -8,6 +8,8 @@ import { ProductDetailsComponent } from './view/components/route/product-details
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { IngredientsModule } from '../ingredients/ingredients.module';
+import { ProductsApiService } from '@content/recipes/application/api/products.api.service';
+import { ProductStorageService } from '@content/recipes/application/storage/product-storage.service';
 
 @NgModule({
     imports: [
@@ -18,12 +20,14 @@ import { IngredientsModule } from '../ingredients/ingredients.module';
         IngredientsModule,
     ],
     declarations: [
-
-
-    ProductCardComponent,
-          ProductListComponent,
-          ProductDetailsComponent
-  ],
+        ProductCardComponent,
+        ProductListComponent,
+        ProductDetailsComponent
+    ],
+    providers: [
+        ProductStorageService,
+        ProductsApiService,
+    ],
 })
 export class RecipesModule {
 }
