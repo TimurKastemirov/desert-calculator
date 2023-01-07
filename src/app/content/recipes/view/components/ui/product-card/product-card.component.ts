@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../../../../domain/models/product';
 import { RecipePart } from '../../../../domain/models/recipe';
-import { IngredientsService } from '../../../../../ingredients/domain/services/ingredients.service';
-import { Ingredient } from '../../../../../ingredients/domain/models/ingredient';
+import { Ingredient } from '@content/ingredients/domain/models/ingredient';
 import { IngredientPackageUnitMultiplier } from '@core/models/ingredient-package-unit';
 
 @Component({
@@ -12,20 +11,16 @@ import { IngredientPackageUnitMultiplier } from '@core/models/ingredient-package
 })
 export class ProductCardComponent implements OnInit {
     @Input() product!: Product;
+    @Input() ingredients!: Ingredient[];
     @Output() editProduct: EventEmitter<number> = new EventEmitter<number>();
     @Output() deleteProduct: EventEmitter<number> = new EventEmitter<number>();
 
     calculatedPrice!: number;
 
-    constructor(
-        private ingredientsService: IngredientsService,
-    ) {
-    }
+    constructor() {}
 
     ngOnInit(): void {
-        this.ingredientsService.getList().subscribe((list: Ingredient[]) => {
-            this.calculatedPrice = this.calculatePrice(this.product, list);
-        });
+        this.calculatedPrice = this.calculatePrice(this.product, this.ingredients);
     }
 
     editItem($event: MouseEvent) {

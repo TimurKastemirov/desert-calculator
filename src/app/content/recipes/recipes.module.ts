@@ -13,6 +13,13 @@ import { ProductStorageService } from '@content/recipes/application/storage/prod
 import { ProductsService } from '@content/recipes/domain/services/products.service';
 import { ProductListResolverService } from '@content/recipes/domain/resolvers/product-list.resolver.service';
 import { ProductDetailsResolverService } from '@content/recipes/domain/resolvers/product-details.resolver.service';
+import { ProductFormComponent } from './view/components/ui/product-form/product-form.component';
+import { ProductDetailsComponentService } from '@content/recipes/view/services/product-details.component.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     imports: [
@@ -21,11 +28,17 @@ import { ProductDetailsResolverService } from '@content/recipes/domain/resolvers
         MatButtonModule,
         MatCardModule,
         IngredientsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
     ],
     declarations: [
         ProductCardComponent,
         ProductListComponent,
-        ProductDetailsComponent
+        ProductDetailsComponent,
+        ProductFormComponent
     ],
     providers: [
         ProductStorageService,
@@ -33,6 +46,7 @@ import { ProductDetailsResolverService } from '@content/recipes/domain/resolvers
         ProductsService,
         ProductListResolverService,
         ProductDetailsResolverService,
+        ProductDetailsComponentService,
     ],
 })
 export class RecipesModule {

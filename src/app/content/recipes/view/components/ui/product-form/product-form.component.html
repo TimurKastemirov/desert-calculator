@@ -1,0 +1,41 @@
+<form class="product-form" [formGroup]="form">
+    <div class="product-form__content">
+        <mat-form-field appearance="fill">
+            <mat-label>Название</mat-label>
+            <input matInput formControlName="name" autocomplete="fdj76587h">
+        </mat-form-field>
+
+        <div formArrayName="recipe" class="product-form__recipe">
+            <h2>Recipe parts</h2>
+
+            <div *ngFor="let recipePartControl of recipe.controls; let i=index">
+                <div [formGroup]="recipePartControl" class="border">
+                    <button mat-icon-button class="close-btn" (click)="removeRecipePart(i)"><mat-icon>close</mat-icon></button>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ингредиент</mat-label>
+                        <mat-select formControlName="ingredientId">
+                            <mat-option
+                                *ngFor="let ingredient of ingredients"
+                                [value]="ingredient.id"
+                            >{{ingredient.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Значение</mat-label>
+                        <input matInput formControlName="amount">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Единица измерения</mat-label>
+                        <mat-select formControlName="unit">
+                            <mat-option *ngFor="let option of unitOptions" [value]="option.value">{{option.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button mat-raised-button color="primary" (click)="addRecipePart()">+ Add recipe part</button>
+        </div>
+    </div>
+</form>

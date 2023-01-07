@@ -3,6 +3,7 @@ import { Product } from '../../../../domain/models/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, take, tap } from 'rxjs';
 import { ProductsService } from '@content/recipes/domain/services/products.service';
+import { Ingredient } from '@content/ingredients/domain/models/ingredient';
 
 @Component({
     selector: 'app-product-list',
@@ -11,6 +12,7 @@ import { ProductsService } from '@content/recipes/domain/services/products.servi
 })
 export class ProductListComponent implements OnInit {
     list!: Product[];
+    ingredients!: Ingredient[];
 
     constructor(
         private router: Router,
@@ -23,6 +25,7 @@ export class ProductListComponent implements OnInit {
         this.activatedRoute.data
             .subscribe(data => {
                 this.list = data['products'];
+                this.ingredients = data['ingredients'];
             });
     }
 

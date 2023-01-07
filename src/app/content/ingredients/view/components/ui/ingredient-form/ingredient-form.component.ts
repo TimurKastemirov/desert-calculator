@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ingredient } from '../../../../domain/models/ingredient';
 import { debounceTime, Subscription, tap } from 'rxjs';
 import { IngredientPackageUnit, IngredientPackageUnitMap } from '@core/models/ingredient-package-unit';

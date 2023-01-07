@@ -1,1 +1,28 @@
-<p>product-details works!</p>
+<div class="product-detail">
+    <div class="product-detail__content">
+        <div class="product-detail__header">
+            <h1>
+                <ng-container *ngIf="product.id">Edit</ng-container>
+                <ng-container *ngIf="!product.id">Add</ng-container>
+                Product
+            </h1>
+        </div>
+
+        <div class="product-detail__main">
+            <app-product-form [product]="product" [ingredients]="ingredients" (formChange)="formChange($event)"></app-product-form>
+        </div>
+
+        <div class="product-detail__footer">
+            <div class="detail-btn-wrapper">
+                <button mat-raised-button color="primary"
+                        (click)="saveProduct($event)"
+                        [disabled]="!(form && form.valid && !form.pristine && form.dirty)"
+                >
+                    Save
+                </button>
+                <button mat-raised-button color="warn" (click)="goBack()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+

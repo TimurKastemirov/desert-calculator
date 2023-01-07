@@ -3,6 +3,7 @@
         <div class="product-list__item" *ngFor="let product of list">
             <app-product-card
                 [product]="product"
+                [ingredients]="ingredients"
                 (editProduct)="editProduct($event)"
                 (deleteProduct)="deleteProduct($event)"
             ></app-product-card>

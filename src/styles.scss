@@ -21,3 +21,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         padding: 7px 0;
     }
 }
+
+.detail-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

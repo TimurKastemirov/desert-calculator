@@ -41,9 +41,7 @@ export class IngredientDetailsComponent implements OnInit {
         $event.stopPropagation();
         const ingredient: Ingredient = this.form.value as unknown as Ingredient;
         this.componentService.save(ingredient)
-            .pipe(
-                take(1),
-            )
+            .pipe(take(1))
             .subscribe(() => {
                 this.router.navigate(['../'], { relativeTo: this.activatedRoute }).then();
             });
