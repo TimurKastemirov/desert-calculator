@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../../../domain/models/product';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap, take, tap } from 'rxjs';
+import { ProductsService } from '@content/recipes/domain/services/products.service';
 
 @Component({
     selector: 'app-product-list',
@@ -7,38 +10,41 @@ import { Product } from '../../../../domain/models/product';
     styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-    list: Product[] = [
-        {
-            id: 1,
-            name: 'merenga',
-            recipe: [
-                {ingredientId: 2, amount: 6, unit: 'sht'},
-                {ingredientId: 4, amount: 100, unit: 'g'},
-                {ingredientId: 5, amount: 50, unit: 'g'},
-                {ingredientId: 6, amount: 15, unit: 'g'},
-                {ingredientId: 7, amount: 300, unit: 'g'},
-                {ingredientId: 8, amount: 250, unit: 'g'},
-                {ingredientId: 9, amount: 50, unit: 'ml'},
-                {ingredientId: 10, amount: 50, unit: 'g'},
-            ],
-        },
-    ];
+    list!: Product[];
 
-    constructor() {
+    constructor(
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
+        private productsService: ProductsService,
+    ) {
     }
 
     ngOnInit(): void {
+        this.activatedRoute.data
+            .subscribe(data => {
+                this.list = data['products'];
+            });
     }
 
     addProduct() {
-
+        this.router.navigate(['new'], { relativeTo: this.activatedRoute }).then();
     }
 
     editProduct(productId: number) {
-        console.log(productId);
+        this.router.navigate([productId], { relativeTo: this.activatedRoute }).then();
     }
 
     deleteProduct(productId: number) {
-        console.log(productId);
+        const isDel: boolean = confirm('Are you sure?');
+        if (isDel) {
+            this.productsService.deleteItem(productId)
+                .pipe(
+                    take(1),
+                    switchMap(() => this.productsService.getList()),
+                    tap((list: Product[]) => this.list = list),
+                )
+                .subscribe()
+            return;
+        }
     }
 }

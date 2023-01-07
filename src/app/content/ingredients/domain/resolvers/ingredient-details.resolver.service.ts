@@ -10,7 +10,7 @@ export class IngredientDetailsResolverService implements Resolve<Ingredient>{
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Ingredient> | Ingredient {
         const id: string | null = route.paramMap.get('id');
-        if (id) {
+        if (id && id !== 'new') {
             return this.ingredientsService.getById(Number(id));
         }
 

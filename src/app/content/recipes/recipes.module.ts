@@ -10,6 +10,9 @@ import { MatCardModule } from '@angular/material/card';
 import { IngredientsModule } from '../ingredients/ingredients.module';
 import { ProductsApiService } from '@content/recipes/application/api/products.api.service';
 import { ProductStorageService } from '@content/recipes/application/storage/product-storage.service';
+import { ProductsService } from '@content/recipes/domain/services/products.service';
+import { ProductListResolverService } from '@content/recipes/domain/resolvers/product-list.resolver.service';
+import { ProductDetailsResolverService } from '@content/recipes/domain/resolvers/product-details.resolver.service';
 
 @NgModule({
     imports: [
@@ -27,6 +30,9 @@ import { ProductStorageService } from '@content/recipes/application/storage/prod
     providers: [
         ProductStorageService,
         ProductsApiService,
+        ProductsService,
+        ProductListResolverService,
+        ProductDetailsResolverService,
     ],
 })
 export class RecipesModule {

@@ -15,13 +15,6 @@ const routes: Routes = [
         },
     },
     {
-        path: 'new',
-        component: IngredientDetailsComponent,
-        resolve: {
-            ingredient: () => Promise.resolve({}),
-        }
-    },
-    {
         path: ':id',
         component: IngredientDetailsComponent,
         resolve: {

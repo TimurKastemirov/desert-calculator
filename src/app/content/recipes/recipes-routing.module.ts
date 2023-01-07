@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './view/components/route/product-list/product-list.component';
 import { ProductDetailsComponent } from './view/components/route/product-details/product-details.component';
+import { ProductListResolverService } from '@content/recipes/domain/resolvers/product-list.resolver.service';
+import { ProductDetailsResolverService } from '@content/recipes/domain/resolvers/product-details.resolver.service';
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
         component: ProductListComponent,
+        resolve: {
+            products: ProductListResolverService,
+        }
     },
     {
-        path: 'new',
+        path: ':id',
         component: ProductDetailsComponent,
         resolve: {
-            product: () => Promise.resolve({}),
+            product: ProductDetailsResolverService,
         }
     }
 ];
