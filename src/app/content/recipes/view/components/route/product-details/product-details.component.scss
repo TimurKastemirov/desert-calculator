@@ -1,9 +1,26 @@
 .product-detail {
-    &__content {}
+    height: 100%;
 
-    &__header {}
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 15px;
+    }
 
-    &__main {}
+    &__header {
+        padding-top: 15px;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+    &__main {
+        flex: 1 0 70%;
+        min-height: 0;
+        overflow-y: auto;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
 
     &__footer {
         margin-top: 10px;
