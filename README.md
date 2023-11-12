@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Capacitor Workflow
+
+### Build
+run ```npm run build```
+
+### Syncing your web code to your Capacitor project
+run ```npx cap sync```
+
+### Testing your Capacitor app
+1) open Android Studio and run the app
+2) open Xcode and run the app
