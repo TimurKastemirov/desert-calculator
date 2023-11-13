@@ -20,6 +20,15 @@
         overflow-y: auto;
         padding-right: 25px;
         padding-left: 25px;
+
+        display: flex;
+        justify-content: center;
+
+        app-product-form {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+        }
     }
 
     &__footer {

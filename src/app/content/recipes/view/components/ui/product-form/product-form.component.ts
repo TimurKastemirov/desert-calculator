@@ -45,7 +45,8 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     }
 
     addRecipePart() {
-        this.recipe.push(
+        this.recipe.insert(
+            0,
             new FormGroup<Record < keyof RecipePart, AbstractControl>>({
                 ingredientId: new FormControl<number | null>(null, [Validators.required]),
                 amount: new FormControl<number | null>(
@@ -66,7 +67,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     }
 
     private initiateForm(): void {
-        this.product.recipe.forEach(() => this.addRecipePart());
+        this.product.recipe.reverse().forEach(() => this.addRecipePart());
         this.form.patchValue(this.product || {});
         this.formChange.emit(this.form);
     }
