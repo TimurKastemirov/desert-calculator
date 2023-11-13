@@ -67,7 +67,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     }
 
     private initiateForm(): void {
-        this.product.recipe.forEach(() => this.addRecipePart());
+        this.product.recipe?.forEach(() => this.addRecipePart());
         this.form.patchValue(this.product || {});
         this.formChange.emit(this.form);
     }
