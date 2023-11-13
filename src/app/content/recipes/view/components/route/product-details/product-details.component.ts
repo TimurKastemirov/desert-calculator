@@ -26,6 +26,10 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit(): void {
         this.activatedRoute.data.subscribe((d: Data) => {
             this.product = d['product'];
+            if (this.product.recipe) {
+                this.product.recipe = this.product.recipe.reverse();
+            }
+
             this.ingredients = d['ingredients'];
         });
     }
@@ -41,6 +45,7 @@ export class ProductDetailsComponent implements OnInit {
     saveProduct($event: MouseEvent): void {
         $event.stopPropagation();
         const product: Product = this.form.value as unknown as Product;
+        product.recipe = product.recipe.reverse(); // NOTE because we reversed in ngOnInit
         this.componentService.save(product)
             .pipe(take(1))
             .subscribe(() => {
